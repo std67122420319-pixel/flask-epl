@@ -27,7 +27,7 @@ def create_app():
     migrate.init_app(app, db)
 
     app.register_blueprint(core_bp, url_prefix='/')
-    app.register_blueprint(club_bp, url_prefix='/clubs')
-    app.register_blueprint(player_bp, url_prefix='/players')
+    app.register_blueprint(clubs_bp, url_prefix='/clubs')
+    app.register_blueprint(players_bp, url_prefix='/players')
 
     return app
