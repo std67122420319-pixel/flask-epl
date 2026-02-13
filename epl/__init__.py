@@ -12,12 +12,11 @@
 
 # from epl import routes, models
 
-from flask import Flask, app
+from flask import Flask
 from epl.extensions import db, migrate
 from epl.core.reutes import core_bp
-from epl.models import Club, Player
-from epl.clubs.routes import club_bp
-from epl.players.reutes import player_bp
+from epl.clubs.routes import clubs_bp
+from epl.players.reutes import players_bp
 
 def create_app():
     app = Flask(__name__)

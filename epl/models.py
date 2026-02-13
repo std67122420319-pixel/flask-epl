@@ -1,5 +1,5 @@
 from epl import db
-from sqlalchemy import Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship , Mapped , mapped_column
 from typing import List
 
@@ -13,10 +13,10 @@ class Club(db.Model):
 
     players: Mapped[List['Player']] = relationship(back_populates="club")
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Clubs({self.name})"
 
-
+    
 class Player(db.Model):
     __tablename__ = 'player'
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -25,11 +25,10 @@ class Player(db.Model):
     nationality: Mapped[str] = mapped_column(String(25), nullable=False)
     goal: Mapped[int] = mapped_column(Integer, nullable=True, default=0)
     squad_no: Mapped[int] = mapped_column(Integer, nullable=True)
-    clean_sheet: Mapped[int] = mapped_column(Integer, nullable=True, default=0)
     img: Mapped[str] = mapped_column(String(256), nullable=False)
+    clean_sheet: Mapped[int] = mapped_column(Integer, nullable=True, default=0)
     club_id: Mapped[int] = mapped_column(Integer, ForeignKey('club.id'))
 
     club: Mapped['Club'] = relationship(back_populates='players')
-
     def __repr__(self):
-     return f"<Players {self.name}>"
+        return f"<Players {self.name}>"
