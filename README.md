@@ -1,4 +1,4 @@
 # Week09
 # Chapter06
-## Flask & SQLAlchemy
-*บทนี้เรียนรู้การใช้งาน Flask รับกับ SQLAlchemy*
+## Flask & SQLAlchemy & Migration & Blueprint & MySQL Database
+*บทนี้เรียนรู้การใช้งาน Flask รับกับ Blueprint & MySQL Database*
