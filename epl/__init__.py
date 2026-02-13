@@ -14,9 +14,10 @@
 
 from flask import Flask
 from epl.extensions import db, migrate
-from epl.core.reutes import core_bp
-from epl.clubs.routes import clubs_bp
-from epl.players.reutes import players_bp
+from epl.core.routes import core_bp
+from epl.models import Club, Player
+from epl.clubs.routes import club_bp
+from epl.players.routes import player_bp
 
 def create_app():
     app = Flask(__name__)
@@ -27,7 +28,7 @@ def create_app():
     migrate.init_app(app, db)
 
     app.register_blueprint(core_bp, url_prefix='/')
-    app.register_blueprint(clubs_bp, url_prefix='/clubs')
-    app.register_blueprint(players_bp, url_prefix='/players')
+    app.register_blueprint(club_bp, url_prefix='/clubs')
+    app.register_blueprint(player_bp, url_prefix='/players')
 
     return app
